@@ -1,0 +1,139 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Oswald", sans-serif;
+  --font-body: "Inter", sans-serif;
+
+  --color-ink-950: #0f2a44;
+  --color-ink-900: #16375a;
+
+  --color-brand-700: #0f2a44;
+  --color-brand-600: #1c4d73;
+  --color-brand-500: #2a628f;
+  --color-brand-400: #5a8ab0;
+  --color-brand-50: #eaf1f6;
+
+  --color-accent-600: #c17f2a;
+  --color-accent-500: #d8933a;
+  --color-accent-50: #faf1e3;
+
+  --color-gray-50: #f5f3ee;
+  --color-gray-100: #eee9dd;
+  --color-gray-200: #dcd8cc;
+  --color-gray-600: #6b6b64;
+
+  --color-whatsapp-500: #25d366;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: #ffffff;
+  color: var(--color-ink-950);
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: var(--font-display);
+}
+
+@keyframes marquee-scroll {
+  from { transform: translateX(0%); }
+  to { transform: translateX(-50%); }
+}
+.marquee-track {
+  animation: marquee-scroll 22s linear infinite;
+}
+.marquee-track.is-paused {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
+
+@keyframes wa-pulse-ring {
+  0% { transform: scale(0.95); opacity: 0.6; }
+  80% { transform: scale(1.25); opacity: 0; }
+  100% { transform: scale(1.25); opacity: 0; }
+}
+
+.stripe-band {
+  height: 6px;
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--color-ink-950),
+    var(--color-ink-950) 8px,
+    var(--color-accent-600) 8px,
+    var(--color-accent-600) 16px
+  );
+}
+
+.clip-tag {
+  clip-path: polygon(8% 0, 100% 0, 92% 100%, 0 100%);
+}
+
+.dot-texture {
+  background-image: radial-gradient(currentColor 1px, transparent 1px);
+  background-size: 14px 14px;
+}
+
+.diag-clip {
+  clip-path: polygon(0 0, 100% 0, 78% 100%, 0% 100%);
+}
+.diag-clip-r {
+  clip-path: polygon(22% 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+/* ---- Motion system ---- */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes heroIn {
+  from { opacity: 0; transform: scale(0.98); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+}
+.reveal.is-visible {
+  animation: fadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hero-enter {
+  animation: heroIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.float-badge {
+  animation: floatSlow 4s ease-in-out infinite;
+}
+
+.stagger > * {
+  opacity: 0;
+  animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.stagger > *:nth-child(1) { animation-delay: 0.05s; }
+.stagger > *:nth-child(2) { animation-delay: 0.15s; }
+.stagger > *:nth-child(3) { animation-delay: 0.25s; }
+.stagger > *:nth-child(4) { animation-delay: 0.35s; }
+.stagger > *:nth-child(5) { animation-delay: 0.45s; }
+.stagger > *:nth-child(6) { animation-delay: 0.55s; }
+.stagger > *:nth-child(7) { animation-delay: 0.65s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .reveal.is-visible, .hero-enter, .float-badge, .stagger > * {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
