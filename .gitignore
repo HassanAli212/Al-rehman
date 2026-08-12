@@ -1,5 +1,7 @@
-node_modules/
-.env
-.env.local
-.env.*.local
-dist/
+al-rehman-milking-machine/backend/.env
+al-rehman-milking-machine/backend/node_modules/
+al-rehman-milking-machine/backend/uploads/
+
+al-rehman-milking-machine/frontend/node_modules/
+al-rehman-milking-machine/frontend/.env
+al-rehman-milking-machine/frontend/dist/
