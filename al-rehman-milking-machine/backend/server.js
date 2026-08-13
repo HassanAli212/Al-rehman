@@ -13,8 +13,9 @@ const app = express();
 // Allowed frontend origins
 const allowedOrigins = [
   "http://localhost:5173",
+  "https://alrahmanmilkingmachines.com",
   process.env.FRONTEND_URL,
-];
+].filter(Boolean);
 
 // CORS
 app.use(
@@ -47,6 +48,6 @@ app.use("/api/upload", require("./routes/uploadRoutes"));
 // Server
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => {
+app.listen(PORT, "0.0.0.0", () => {
   console.log(`Server running on port ${PORT}`);
 });
