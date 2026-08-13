@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://alrahmanmilkingmachines.com/sitemap.xml
