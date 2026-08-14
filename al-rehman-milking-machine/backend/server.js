@@ -14,6 +14,7 @@ const app = express();
 const allowedOrigins = [
   "http://localhost:5173",
   "https://alrahmanmilkingmachines.com",
+  "https://www.alrahmanmilkingmachines.com",
   process.env.FRONTEND_URL,
 ].filter(Boolean);
 
